@@ -2,7 +2,9 @@
 #include <vector>
 #include <print>
 
-void reverse_array(std::vector<int> &arr) {
+void
+reverse_array(std::vector<int> &arr)
+{
     for (int i{}, j(arr.size() - 1); i < j; i++, j--) {
         int tmp{};
         tmp = arr.at(j);
@@ -50,5 +52,3 @@ main()
 
     return 0;
 }
-
-
