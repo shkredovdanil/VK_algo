@@ -27,6 +27,10 @@ center_list(List &list)
     return slow;
 }
 
+/*
+    v_fast = 2 * v_slow => когда быстрый в конце, медленный в центре
+*/
+
 int
 main()
 {
@@ -39,6 +43,7 @@ main()
         Node *center = center_list(list);
 
         std::println("{}", center->x);
+        free_list(list);
     }
     {
         std::println("Test 2: [1, 4, 5]. Expected: 4");
@@ -49,6 +54,7 @@ main()
         Node *center = center_list(list);
 
         std::println("{}", center->x);
+        free_list(list);
     }
     {
         std::println("Test 3: [1]. Expected: 1");
@@ -59,6 +65,7 @@ main()
         Node *center = center_list(list);
 
         std::println("{}", center->x);
+        free_list(list);
     }
     {
         std::println("Test 4: [1, 4]. Expected: 1/4");
@@ -69,5 +76,6 @@ main()
         Node *center = center_list(list);
 
         std::println("{}", center->x);
+        free_list(list);
     }
 }

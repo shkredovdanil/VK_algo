@@ -26,6 +26,10 @@ reverse(List &list)
     list.head = prev;
 }
 
+/*
+    запоминаем указатель прошлого node и устанавливаем cur->next = prev;
+*/
+
 int
 main()
 {
@@ -38,6 +42,8 @@ main()
         reverse(list);
 
         print_list(list);
+
+        free_list(list);
     }
     {
         std::println("Test 2: [0]. Expected: [0]");
@@ -48,6 +54,7 @@ main()
         reverse(list);
 
         print_list(list);
+        free_list(list);
     }
     {
         std::println("Test 3: []. Expected: []");
@@ -58,5 +65,6 @@ main()
         reverse(list);
 
         print_list(list);
+        free_list(list);
     }
 }

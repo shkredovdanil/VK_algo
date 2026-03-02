@@ -26,6 +26,10 @@ twoSum(std::vector<int> &arr, int target) -> std::vector<int>
     return res;
 }
 
+/*
+    Один раз проходим указателями по массиву => O(n)
+*/
+
 int
 main()
 {

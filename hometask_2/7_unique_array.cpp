@@ -20,6 +20,11 @@ make_unique(int *arr, int n) // return amount of unique elem. Those elem. are lo
     return slow + 1;
 }
 
+/*
+    Левее медленного указателя находятся уникальные элементы
+*/
+
+
 int
 main()
 {

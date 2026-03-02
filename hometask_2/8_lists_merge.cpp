@@ -50,6 +50,12 @@ merge(List &l1, List &l2)
     return res;
 }
 
+/*
+    Создаем один новый node, чтобы к нему цеплять все остальные. Далее удаляем эту голову.
+    Получаем, что выделили память только под один node, который потом удалили.
+    Проход по спискам длины m и n один раз => O(m+n)
+*/
+
 int
 main()
 {
@@ -65,6 +71,7 @@ main()
         List res = merge(list1, list2);
 
         print_list(res);
+        free_list(res);
     }
     {
         std::println("Test 2: [1, 2, 3], []. Expected: [1, 2, 3]");
@@ -78,6 +85,7 @@ main()
         List res = merge(list1, list2);
 
         print_list(res);
+        free_list(res);
     }
     {
         std::println("Test 3: [1, 2, 3], [4, 5, 6]. Expected: [1, 2, 3, 4, 5, 6]");
@@ -91,6 +99,7 @@ main()
         List res = merge(list1, list2);
 
         print_list(res);
+        free_list(res);
     }
     {
         std::println("Test 4: [1, 3], [0, 2, 4]. Expected: [0, 1, 2, 3, 4]");
@@ -104,5 +113,6 @@ main()
         List res = merge(list1, list2);
 
         print_list(res);
+        free_list(res);
     }
 }

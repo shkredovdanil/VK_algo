@@ -34,6 +34,10 @@ remove_node(List &list, int target)
     delete tmp;
 }
 
+/*
+    для удобства удаления головы создаем новую голову, которую потом удалим.
+*/
+
 int
 main()
 {
@@ -46,6 +50,7 @@ main()
         remove_node(list, 3);
 
         print_list(list);
+        free_list(list);
     }
     {
         std::println("Test 2: [1, 2, 3, 4, 5], 1. Expected: [2, 3, 4, 5]");
@@ -56,6 +61,7 @@ main()
         remove_node(list, 1);
 
         print_list(list);
+        free_list(list);
     }
     {
         std::println("Test 3: [1, 2, 3, 4, 5], 5. Expected: [1, 2, 3, 4]");
@@ -66,6 +72,7 @@ main()
         remove_node(list, 5);
 
         print_list(list);
+        free_list(list);
     }
     {
         std::println("Test 4: [1, 2, 3, 4, 5], 6. Expected: [1, 2, 3, 4, 5]");
@@ -76,5 +83,6 @@ main()
         remove_node(list, 6);
 
         print_list(list);
+        free_list(list);
     }
 }
