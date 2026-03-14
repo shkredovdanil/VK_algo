@@ -1,4 +1,3 @@
-#include <iostream>
 #include <print>
 #include "list.h"
 
