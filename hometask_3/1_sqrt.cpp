@@ -3,20 +3,24 @@
 unsigned
 sqrt(unsigned x)
 {
+    if (x < 2) {
+        return x;
+    }
+
     unsigned left{1}, right{x};
     unsigned mid{};
 
-    while (left + 1 < right) {
+    while (left <= right) {
         mid = (left + right) / 2;
 
-        if (mid * mid <= x) {
-            left = mid;
+        if (mid <= x / mid) {
+            left = mid + 1;
         } else {
-            right = mid;
+            right = mid - 1;
         }
     }
 
-    return left;
+    return right;
 }
 
 /*
@@ -52,7 +56,7 @@ main()
         println("{}", sqrt(6));
     }
     {
-        println("Test 7: Input 7, Expected output 7");
+        println("Test 7: Input 7, Expected output 2");
         println("{}", sqrt(7));
     }
     {
