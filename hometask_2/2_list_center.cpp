@@ -20,7 +20,10 @@ center_list(List &list)
 
     while (fast->next) {
         slow = slow->next;
-        fast = fast->next->next;
+        fast = fast->next;
+        if (fast->next) {
+            fast = fast->next;
+        }
     }
 
     return slow;
@@ -69,6 +72,17 @@ main()
     {
         std::println("Test 4: [1, 4]. Expected: 1/4");
         int x[]{1, 4};
+        List list;
+
+        get_list(list, x, sizeof(x) / sizeof(*x));
+        Node *center = center_list(list);
+
+        std::println("{}", center->x);
+        free_list(list);
+    }
+    {
+        std::println("Test 5: [1, 4, 2, 3]. Expected: 4/2");
+        int x[]{1, 4, 2, 3};
         List list;
 
         get_list(list, x, sizeof(x) / sizeof(*x));
