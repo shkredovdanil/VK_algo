@@ -1,29 +1,18 @@
 #include <vector>
 
-/*
- * Поиск индекса поворота (минимального элемента) в повернутом отсортированном массиве.
- * Мы ищем индекс i, для которого префиксная проверка условия nums[i] < nums[i-1] 
- * дает истину. В отсортированном массиве это происходит ровно один раз.
- */
-int findMinIndexWithPrefixLogic(const std::vector<int>& nums) {
-    if (nums.empty()) return -1;
-    
-    int n = nums.size();
-    
-    // Если первый элемент меньше последнего, массив не развернут 
-    // или развернут на полный круг
-    if (nums[0] <= nums[n - 1]) {
-        return 0;
-    }
+int findMinIndex(const std::vector<int>& nums) {
+    int left = 0, right = nums.size() - 1;
+    if (nums[left] <= nums[right]) return left;
 
-    // Линейный проход с логикой "накопления" признака разворота.
-    // Мы ищем точку, где нарушается условие неубывания.
-    for (int i = 1; i < n; ++i) {
-        // Условие разворота: текущий элемент меньше предыдущего
-        if (nums[i] < nums[i - 1]) {
-            return i;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (mid > 0 && nums[mid] < nums[mid - 1]) return mid;
+        
+        if (nums[mid] >= nums[left]) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
         }
     }
-
     return 0;
 }
